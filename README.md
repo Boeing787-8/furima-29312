@@ -2,36 +2,23 @@
 
 ## users テーブル
 
-| Column    | Type   | Options     |
-| --------- | ------ | ----------- |
-| user_name | string | null: false |
-| email     | string | null: false |
-| password  | string | null: false |
-
-### Association
-
-- has_one :profile
-- has_one :credit_card
-- has_one :address
-- has_many :items
-- has_many :comments
-- has_many :images
-
-## profile テーブル
-
-| Column              | Type    | Options     |
-| ------------------- | ------- | ----------- |
+| Column              | Type   | Options      |
+| ------------------- | ------ | ------------ |
+| user_name           | string | null: false  |
+| email               | string | null: false  |
+| password            | string | null: false  |
 | first_name          | string  | null: false |
 | last_name           | string  | null: false |
 | first_name_katakana | string  | null: false |
 | last_name_katakana  | string  | null: false |
-| birth_year          | integer | null: false |
-| birth_month         | integer | null: false |
-| birth_day           | integer | null: false |
+| birthday            | date    | null: false |
 
 ### Association
 
-- belongs_to :users
+- has_one :address
+- has_many :items
+- has_many :comments
+- has_many :images
 
 ## items テーブル
 
