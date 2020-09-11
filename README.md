@@ -22,34 +22,22 @@
 
 ## items テーブル
 
-| Column           | Type       | Options                       |
-| ---------------- | ---------- | ----------------------------- |
-| images           | references | null: false,foreign_key: true |
-| item_name        | string     | null: false                   |
-| item_explanation | text       | null: false                   |
-| category         | references | null: false,foreign_key: true |
-| condition        | references | null: false,foreign_key: true |
-| delivery_fee     | references | null: false,foreign_key: true |
-| prefecture_from  | string     | null: false                   |
-| price            | integer    | null: false                   |
+| Column           | Type        | Options                       |
+| ---------------- | ----------- | ----------------------------- |
+| images           | references  | null: false,foreign_key: true |
+| name             | string      | null: false                   |
+| explanation      | text        | null: false                   |
+| category         | integer     | null: false                   |
+| condition        | integer     | null: false                   |
+| delivery_fee     | integer     | null: false                   |
+| prefecture_from  | integer     | null: false                   |
+| shipping_day     | integer     | null: false                   |
+| price            | integer     | null: false                   |
 
 ### Association
 
 - has_many :comments
-- has_many :images
-- belongs_to :users
-
-## images テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| item_id | references | null: false, foreign_key: true |
-| image   | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :items
-- belongs_to :users
+- belongs_to :user
 
 ## comments テーブル
 
