@@ -66,16 +66,3 @@
 ### Association
 
 - belongs_to :user
-
-## credit_card テーブル
-
-| Column        | Type       | Options     |
-| ------------- | ---------- | ----------- |
-| card_number   | integer    | null: false |
-| expiry_month  | integer    | null: false |
-| expiry_year   | integer    | null: false |
-| security_code | integer    | null: false |
-
-### Association
-
-- belongs_to :user
