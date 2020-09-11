@@ -31,11 +31,13 @@
 | prefecture_from  | integer     | null: false, foreign_key: true |
 | shipping_day     | integer     | null: false, foreign_key: true |
 | price            | integer     | null: false, foreign_key: true |
+| user             | references  | null: false, foreign_key: true |
 
 ### Association
 
 - has_many :comments
 - belongs_to :user
+- has_one :purchase
 
 ## comments テーブル
 
@@ -69,12 +71,11 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
-- belongs_to :address
+- has_one :address
