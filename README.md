@@ -49,8 +49,8 @@
 
 ### Association
 
-- belongs_to :items
-- belongs_to :users
+- belongs_to :item
+- belongs_to :user
 
 ## address テーブル
 
@@ -65,7 +65,7 @@
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 
 ## credit_card テーブル
 
@@ -78,4 +78,4 @@
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
