@@ -4,7 +4,7 @@
 
 | Column              | Type    | Options     |
 | ------------------- | ------- | ------------|
-| user_name           | string  | null: false |
+| name                | string  | null: false |
 | email               | string  | null: false |
 | password            | string  | null: false |
 | first_name          | string  | null: false |
@@ -15,9 +15,9 @@
 
 ### Association
 
-- has_one :address
 - has_many :items
 - has_many :comments
+- has_one :purchase
 
 ## items テーブル
 
@@ -49,10 +49,10 @@
 
 ### Association
 
-- belongs_to :item_id
-- belongs_to :user_id
+- belongs_to :item
+- belongs_to :user
 
-## address テーブル
+## addresses テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
@@ -66,7 +66,7 @@
 
 ### Association
 
-- belongs_to :purchase
+- belongs_to :purchases
 
 ## purchase テーブル
 
