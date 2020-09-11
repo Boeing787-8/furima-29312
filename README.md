@@ -17,7 +17,7 @@
 
 - has_many :items
 - has_many :comments
-- has_one :purchase
+- has_many :purchases
 
 ## items テーブル
 
@@ -66,7 +66,7 @@
 
 ### Association
 
-- belongs_to :purchases
+- belongs_to :purchase
 
 ## purchase テーブル
 
