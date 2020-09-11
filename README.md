@@ -2,11 +2,11 @@
 
 ## users テーブル
 
-| Column              | Type   | Options      |
-| ------------------- | ------ | ------------ |
-| user_name           | string | null: false  |
-| email               | string | null: false  |
-| password            | string | null: false  |
+| Column              | Type    | Options     |
+| ------------------- | ------- | ------------|
+| user_name           | string  | null: false |
+| email               | string  | null: false |
+| password            | string  | null: false |
 | first_name          | string  | null: false |
 | last_name           | string  | null: false |
 | first_name_katakana | string  | null: false |
@@ -18,21 +18,19 @@
 - has_one :address
 - has_many :items
 - has_many :comments
-- has_many :images
 
 ## items テーブル
 
-| Column           | Type        | Options                       |
-| ---------------- | ----------- | ----------------------------- |
-| images           | references  | null: false,foreign_key: true |
-| name             | string      | null: false                   |
-| explanation      | text        | null: false                   |
-| category         | integer     | null: false                   |
-| condition        | integer     | null: false                   |
-| delivery_fee     | integer     | null: false                   |
-| prefecture_from  | integer     | null: false                   |
-| shipping_day     | integer     | null: false                   |
-| price            | integer     | null: false                   |
+| Column           | Type        | Options                        |
+| ---------------- | ----------- | ------------------------------ |
+| name             | string      | null: false                    |
+| explanation      | text        | null: false                    |
+| category         | integer     | null: false                    |
+| condition        | integer     | null: false                    |
+| delivery_fee     | integer     | null: false, foreign_key: true |
+| prefecture_from  | integer     | null: false, foreign_key: true |
+| shipping_day     | integer     | null: false, foreign_key: true |
+| price            | integer     | null: false, foreign_key: true |
 
 ### Association
 
@@ -49,8 +47,8 @@
 
 ### Association
 
-- belongs_to :item
-- belongs_to :user
+- belongs_to :item_id
+- belongs_to :user_id
 
 ## address テーブル
 
@@ -66,3 +64,17 @@
 ### Association
 
 - belongs_to :user
+
+## purchase テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user_id | references | null: false, foreign_key: true |
+| item_id | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :item
+- belongs_to :user
+- belongs_to :address
