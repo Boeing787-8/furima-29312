@@ -13,4 +13,8 @@ class User < ApplicationRecord
          validates :first_name_katakana, presence: true
          validates :last_name_katakana, presence: true
          validates :birthday, presence: true
+
+         has_many :items
+         has_many :comments
+         has_many :purchases
 end
