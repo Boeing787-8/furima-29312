@@ -12,6 +12,10 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = "000000"
         expect(@user).to be_valid
       end
+
+      it "全ての値が存在すれば登録できること" do
+        expect(@user).to be_valid
+      end
     end
 
     context '新規登録がうまくいかないとき' do
