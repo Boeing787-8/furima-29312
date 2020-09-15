@@ -79,14 +79,25 @@ RSpec.describe User, type: :model do
       end
 
       it "first_name_katakanaが空だと登録できない" do
-        @user.first_name_katakana = ""  # nameの値を空にする
+        @user.first_name_katakana = ""
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name katakana can't be blank")      end
+        expect(@user.errors.full_messages).to include("First name katakana can't be blank")
+      end
 
+      it "first_name_katakanaはカタカナ以外だと登録できない" do
+        @user.first_name_katakana = "aaaaa"
+        @user.valid?
+      end
+      
       it "last_name_katakanaが空だと登録できない" do
-        @user.last_name_katakana = ""  # nameの値を空にする
+        @user.last_name_katakana = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name katakana can't be blank")
+      end
+
+      it "last_name_katakanaはカタカナ以外だと登録できない" do
+        @user.last_name_katakana = "aaaaa"
+        @user.valid?
       end
 
       it "birthdayが空だと登録できない" do
