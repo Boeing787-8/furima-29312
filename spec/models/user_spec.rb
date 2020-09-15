@@ -7,17 +7,22 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context '新規登録がうまくいくとき' do
+      it "passwordが6文字以上であれば登録できる" do
+        @user.password = "000000"
+        @user.password_confirmation = "000000"
+        expect(@user).to be_valid
+      end
     end
 
     context '新規登録がうまくいかないとき' do
       it "nameが空だと登録できない" do
-        @user.name = ""  # nameの値を空にする
+        @user.name = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("Name can't be blank")
       end
 
       it "emailが空では登録できない" do
-        @user.email = ""  # emailの値を空にする
+        @user.email = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("Email can't be blank")
       end
@@ -61,19 +66,19 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password confirmation can't be blank")
       end
 
-      it "firsr_nameが空だと登録できない" do
+      it "first_nameが空だと登録できない" do
         @user.first_name = ""  # nameの値を空にする
         @user.valid?
         expect(@user.errors.full_messages).to include("First name can't be blank")
       end
 
-      it "lasr_nameが空だと登録できない" do
+      it "last_nameが空だと登録できない" do
         @user.last_name = ""  # nameの値を空にする
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name can't be blank")
       end
 
-      it "firsr_name_katakanaが空だと登録できない" do
+      it "first_name_katakanaが空だと登録できない" do
         @user.first_name_katakana = ""  # nameの値を空にする
         @user.valid?
         expect(@user.errors.full_messages).to include("First name katakana can't be blank")      end
