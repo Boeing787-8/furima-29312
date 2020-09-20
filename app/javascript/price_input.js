@@ -1,6 +1,5 @@
 window.addEventListener('keyup', function(){
 const data = document.getElementById("item-price").value;
-  console.log(data)
 
     const profit = Math.round(data * 0.9);
     const fee = (data - profit);
