@@ -10,6 +10,7 @@ class OrderAddress
     # 「住所」の都道府県に関するバリデーション
     validates :prefecture_from_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :city
+    validates :house_number
     validates :telephone_number
   end
   
