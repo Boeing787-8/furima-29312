@@ -1,12 +1,12 @@
 class OrdersController < ApplicationController
   before_action :move_to_login
+  before_action :set_order, only: [:index, :create]
+
   def index
-    @item = Item.find(params[:item_id])
     @order = OrderAddress.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order = OrderAddress.new(order_params)
     if @order.valid?
       pay_item
@@ -37,6 +37,10 @@ private
      card: order_params[:token],   # カードトークン
      currency:'jpy'
    )
+  end
+
+  def set_order
+    @item = Item.find(params[:item_id])
   end
 
 end
