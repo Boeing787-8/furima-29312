@@ -39,10 +39,6 @@ class OrdersController < ApplicationController
    )
   end
 
-  def set_item
-
-  end
-
   def move_to_top
     if Order.exists?(item_id: @item.id)
       redirect_to root_path
